@@ -5,6 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MvcMusicStore.Models;
+using PagedList;
 
 namespace MvcMusicStore.Controllers
 {

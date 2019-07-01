@@ -14,7 +14,6 @@ namespace MvcMusicStore.Controllers
         private ApplicationDbContext storeDB = new ApplicationDbContext();
         const string PromoCode = "FREE";
 
-
         //
         // GET: /Checkout/AddressAndPayment
         public ActionResult AddressAndPayment()

@@ -112,6 +112,7 @@ namespace MvcMusicStore.Models
                               select (int?)cartItems.Count *
                               cartItems.Album.Price).Sum();
 
+            // neu total = null thi tra ve gia tri 0, neu total != 0 => tra ve total
             return total ?? decimal.Zero;
         }
         public int CreateOrder(Order order)
@@ -153,6 +154,7 @@ namespace MvcMusicStore.Models
             {
                 if (!string.IsNullOrWhiteSpace(context.User.Identity.Name))
                 {
+                    // Set this session = user name
                     context.Session[CartSessionKey] =
                         context.User.Identity.Name;
                 }

@@ -74,6 +74,8 @@ namespace MvcMusicStore.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.AlbumId = new SelectList(db.Albums, "AlbumId", "Name", album.AlbumId);
             ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name", album.ArtistId);
             ViewBag.GenreId = new SelectList(db.Genres, "GenreId", "Name", album.GenreId);
             return View(album);
@@ -84,12 +86,14 @@ namespace MvcMusicStore.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Album album)
         {
+
             if (ModelState.IsValid)
             {
                 db.Entry(album).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            //ViewBag.AlbumId = new SelectList(db.Albums, "AlbumId", "Name", album.AlbumId);
             ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name", album.ArtistId);
             ViewBag.GenreId = new SelectList(db.Genres, "GenreId", "Name", album.GenreId);
             return View(album);
